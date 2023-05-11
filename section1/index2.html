@@ -1,0 +1,57 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABBLE LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Let's React</title>
+</head>
+<body>
+<!-- DESIGNATE LOCATION TO INSERT REACT -->
+<div id="app">React has not rendered yet</div>
+<div id="para"></div>
+<div id="anchor"></div>
+<div id="list"></div>
+
+<!-- JAVASCRIPT -->
+<script type="text/babel">
+    // RENDER REACT TO THE DOM - WILL ACCEPT 2 ARGs (REACT WHAT, REACT WHERE)
+    ReactDOM.render(
+        // REACT WHAT - JSX
+        <h1>Hello World</h1>,
+        // REACT WHERE - DIV WITH ID = "APP"
+        document.getElementById("app")
+    );
+    // ASSIGNMENT CHALLENGE 1 - RENDER THE PARAGRAPH "I am a paragraph."
+    ReactDOM.render(
+        <p>I am a paragraph!</p>,
+        document.getElementById("para")
+    )
+    // ASSIGNMENT CHALLENGE 2 - RENDER AN ANCHOR TAG LINK TO GOOGLE WITH CONTENT "Visit Google"
+    ReactDOM.render(
+        <a href="https://www.google.com">Visit Google</a>,
+        document.getElementById("anchor")
+    )
+    // ASSIGNMENT CHALLENGE 3 - RENDER <ul> OF 3 THINGS I NEED TO DO TODAY
+    ReactDOM.render(
+        <h3>3 Things I need to do today:
+            <ul>
+                <li>This React Course</li>
+                <li>Eat</li>
+                <li>Continue reading the React docs</li>
+            </ul>
+        </h3>,
+        document.getElementById("list")
+    )
+</script>
+
+</body>
+</html>
