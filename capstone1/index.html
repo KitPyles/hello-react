@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>FriendLy</title>
+</head>
+<body>
+    <div id="app">React has not rendered yet</div>
+
+    <script type="text/babel">
+        let FriendLy = function () {
+            let friendLyStyle = {
+                width: 200,
+                height: 300,
+                textAlign: "center",
+                alignItems: "center",
+                border: "1px solid #000000",
+                boxShadow: "5px 5px 5px #000000"
+            }
+            return (
+                <div style={friendLyStyle}>
+                    <Avatar/>
+                    <UserName/>
+                    <GetConnected/>
+                </div>
+            );
+        }
+
+        let Avatar = function () {
+            let avatarStyle =  {
+                height: 150,
+                width: 150,
+                borderRadius: "50%",
+                backgroundColor: "purple",
+                margin: "auto",
+                marginTop: "10px"
+            }
+            return (
+                <div style={avatarStyle}></div>
+            );
+        }
+
+        let UserName = function () {
+            let userStyle = {
+                color: "green",
+                fontSize: 30,
+                textAlign: "center"
+            }
+            return (
+                <p style={userStyle}>KitPyles</p>
+            );
+        }
+
+        let GetConnected = function () {
+            let connectStyle = {
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                margin: "30px"
+            }
+            return (
+                <div style={connectStyle}>
+                    <Like/><Share/><Add/>
+                </div>
+            )
+        }
+
+        let Like = function () {
+            let likeStyle = {
+                height: 25,
+                width: 25,
+                backgroundColor: "red"
+            }
+            return(
+                <div style={likeStyle}></div>
+            );
+        }
+        let Share = function () {
+            let shareStyle = {
+                height: 25,
+                width: 25,
+                backgroundColor: "orange"
+            }
+            return(
+                <div style={shareStyle}></div>
+            );
+        }
+        let Add = function () {
+            let addStyle = {
+                height: 25,
+                width: 25,
+                backgroundColor: "yellow"
+            }
+            return(
+                <div style={addStyle}></div>
+            );
+        }
+
+        ReactDOM.render(
+          <FriendLy/>,
+          document.getElementById("app")
+        );
+    </script>
+</body>
+</html>
