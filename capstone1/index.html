@@ -8,6 +8,8 @@
     <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
     <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+<!--  Font Awesome Icons Import  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
     <title>FriendLy</title>
 </head>
 <body>
@@ -19,9 +21,7 @@
                 width: 200,
                 height: 300,
                 textAlign: "center",
-                alignItems: "center",
-                border: "1px solid #000000",
-                boxShadow: "5px 5px 5px #000000"
+                boxShadow: "0 0 5px #555"
             }
             return (
                 <div style={friendLyStyle}>
@@ -37,23 +37,22 @@
                 height: 150,
                 width: 150,
                 borderRadius: "50%",
-                backgroundColor: "purple",
                 margin: "auto",
-                marginTop: "10px"
+                marginTop: "15px"
             }
             return (
-                <div style={avatarStyle}></div>
+                <img src="headshot.jpg" alt="Headshot of an adult caucasian female wearing glasses & with auburn hair, pulled back into a braided bun" style={avatarStyle}></img>
             );
         }
 
         let UserName = function () {
-            let userStyle = {
-                color: "green",
-                fontSize: 30,
-                textAlign: "center"
-            }
+            // let userStyle = {
+            //     color: "green",
+            //     fontSize: 30,
+            //     textAlign: "center"
+            // }
             return (
-                <p style={userStyle}>KitPyles</p>
+                <h1>Kit Pyles</h1>
             );
         }
 
@@ -72,34 +71,23 @@
             )
         }
 
+        let iconStyle = {
+            height: 25,
+            width: 25
+        }
         let Like = function () {
-            let likeStyle = {
-                height: 25,
-                width: 25,
-                backgroundColor: "red"
-            }
             return(
-                <div style={likeStyle}></div>
+                <i className="fa fa-thumbs-o-up" aria-hidden="true" style={iconStyle}></i>
             );
         }
         let Share = function () {
-            let shareStyle = {
-                height: 25,
-                width: 25,
-                backgroundColor: "orange"
-            }
             return(
-                <div style={shareStyle}></div>
+                <i className="fa fa-share" aria-hidden="true" style={iconStyle}></i>
             );
         }
         let Add = function () {
-            let addStyle = {
-                height: 25,
-                width: 25,
-                backgroundColor: "yellow"
-            }
             return(
-                <div style={addStyle}></div>
+                <i className="fa fa-users" aria-hidden="true" style={iconStyle}></i>
             );
         }
 
