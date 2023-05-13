@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+<!--  Font Awesome Icons Import  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>FriendLy</title>
+</head>
+<body>
+    <div id="app">React has not rendered yet</div>
+
+    <script type="text/babel">
+        let FriendLy = function (props) {
+            let friendLyStyle = {
+                display: 'inline-block',
+                margin: 20,
+                width: 200,
+                height: 300,
+                padding: 0,
+                textAlign: "center",
+                boxShadow: "0 0 5px #555"
+            }
+            return (
+                <div style={friendLyStyle}>
+                    <Avatar img={props.img}/>
+                    <UserName name={props.name}/>
+                    <GetConnected/>
+                </div>
+            );
+        }
+
+        let Avatar = function (props) {
+            let avatarStyle =  {
+                height: 150,
+                width: 150,
+                borderRadius: "50%",
+                margin: "auto",
+                marginTop: "15px"
+            }
+            return (
+                <img src={props.img} alt="headshot" style={avatarStyle}></img>
+            );
+        }
+
+        let UserName = function (props) {
+            return (
+                <h1>{props.name}</h1>
+            );
+        }
+
+        let GetConnected = function () {
+            let connectStyle = {
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                margin: "30px"
+            }
+            return (
+                <div style={connectStyle}>
+                    <Like/><Share/><Add/>
+                </div>
+            )
+        }
+
+        let iconStyle = {
+            height: 25,
+            width: 25
+        }
+        let Like = function () {
+            return(
+                <i className="fa fa-thumbs-o-up" aria-hidden="true" style={iconStyle}></i>
+            );
+        }
+        let Share = function () {
+            return(
+                <i className="fa fa-share" aria-hidden="true" style={iconStyle}></i>
+            );
+        }
+        let Add = function () {
+            return(
+                <i className="fa fa-users" aria-hidden="true" style={iconStyle}></i>
+            );
+        }
+
+        ReactDOM.render(
+            <div>
+                <FriendLy name="Kit" img="headshots/headshot.jpg"/>
+                <FriendLy name="Rob" img="headshots/rob.jpg"/>
+                <FriendLy name="Erin" img="headshots/female1.png"/>
+                <FriendLy name="Maggie" img="headshots/maggie.jpg"/>
+                <FriendLy name="Sarah" img="headshots/sarah.jpg"/>
+                <FriendLy name="Bobby" img="headshots/bobby.jpg"/>
+                <FriendLy name="Alden" img="headshots/alden.jpg"/>
+                <FriendLy name="Tracy" img="headshots/tracy.jpg"/>
+                <FriendLy name="Aaron" img="headshots/aaron.jpg"/>
+                <FriendLy name="Ellen" img="headshots/ellen.jpg"/>
+            </div>,
+          document.getElementById("app")
+        );
+    </script>
+</body>
+</html>
