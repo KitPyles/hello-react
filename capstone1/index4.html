@@ -16,7 +16,21 @@
     <div id="app">React has not rendered yet</div>
 
     <script type="text/babel">
+        // ADD FILTER METHOD
+        let friends = [
+            {id: 1, gender: 'other', name: 'Kit', img: "headshots/kit.jpg"},
+            {id: 2, gender: 'male', name:"Rob", img: "headshots/rob.jpg"},
+            {id: 3, gender: 'female', name: "Erin", img: "headshots/female1.png"},
+            {id: 4, gender: 'female', name: "Maggie", img: "headshots/maggie.jpg"},
+            {id: 5, gender: 'female', name: "Sarah", img: "headshots/sarah.jpg"},
+            {id: 6, gender: 'male', name: "Bobby", img: "headshots/bobby.jpg"},
+            {id: 7, gender: 'male', name: "Alden", img: "headshots/alden.jpg"},
+            {id: 8, gender: 'female', name: "Tracy", img: "headshots/tracy.jpg"},
+            {id: 9, gender: 'male', name: "Aaron", img: "headshots/aaron.jpg"},
+            {id: 10, gender: 'female', name: "Ellen", img: "headshots/ellen.jpg"}
+        ]
         let FriendLy = function (props) {
+            let friends = props.friends;
             let friendLyStyle = {
                 display: 'inline-block',
                 margin: 20,
@@ -26,11 +40,25 @@
                 textAlign: "center",
                 boxShadow: "0 0 5px #555"
             }
-            return (
-                <div style={friendLyStyle}>
-                    <Avatar img={props.img}/>
-                    <UserName name={props.name}/>
+            let femaleFriends = friends.filter(friend => friend.gender === 'female').map(woman =>
+                <div key={woman.id} style={friendLyStyle}>
+                    <Avatar img={woman.img}/>
+                    <UserName name={woman.name}/>
                     <GetConnected/>
+                </div>)
+            let maleFriends = friends.filter(friend => friend.gender === 'male').map(man =>
+                <div key={man.id} style={friendLyStyle}>
+                    <Avatar img={man.img}/>
+                    <UserName name={man.name}/>
+                    <GetConnected/>
+                </div>)
+            return (
+                <div>
+                    <h1>Males</h1>
+                    <div>{maleFriends}</div>
+                    <hr/>
+                    <h1>Females</h1>
+                    <div>{femaleFriends}</div>
                 </div>
             );
         }
@@ -44,7 +72,7 @@
                 marginTop: "15px"
             }
             return (
-                <img src={props.img} alt="headshot" style={avatarStyle}></img>
+                <img src={props.img} alt="profile picture" style={avatarStyle}></img>
             );
         }
 
@@ -75,32 +103,25 @@
         }
         let Like = function () {
             return(
-                <i className="fa fa-thumbs-o-up" aria-hidden="true" style={iconStyle}></i>
+                <i className="fa fa-thumbs-o-up" aria-hidden="'female'" style={iconStyle}></i>
             );
         }
         let Share = function () {
             return(
-                <i className="fa fa-share" aria-hidden="true" style={iconStyle}></i>
+                <i className="fa fa-share" aria-hidden="'female'" style={iconStyle}></i>
             );
         }
         let Add = function () {
             return(
-                <i className="fa fa-users" aria-hidden="true" style={iconStyle}></i>
+                <i className="fa fa-users" aria-hidden="'female'" style={iconStyle}></i>
             );
         }
 
         ReactDOM.render(
             <div>
-                <FriendLy name="Kit" img="headshots/kit.jpg"/>
-                <FriendLy name="Rob" img="headshots/rob.jpg"/>
-                <FriendLy name="Erin" img="headshots/female1.png"/>
-                <FriendLy name="Maggie" img="headshots/maggie.jpg"/>
-                <FriendLy name="Sarah" img="headshots/sarah.jpg"/>
-                <FriendLy name="Bobby" img="headshots/bobby.jpg"/>
-                <FriendLy name="Alden" img="headshots/alden.jpg"/>
-                <FriendLy name="Tracy" img="headshots/tracy.jpg"/>
-                <FriendLy name="Aaron" img="headshots/aaron.jpg"/>
-                <FriendLy name="Ellen" img="headshots/ellen.jpg"/>
+                <FriendLy
+                    friends = {friends}
+                />
             </div>,
           document.getElementById("app")
         );

@@ -16,7 +16,21 @@
     <div id="app">React has not rendered yet</div>
 
     <script type="text/babel">
+        // ADD MAP METHOD
+        let friends = [
+            {id: 1, name: 'Kit', img: "headshots/kit.jpg"},
+            {id: 2, name:"Rob", img: "headshots/rob.jpg"},
+            {id: 3, name: "Erin", img: "headshots/female1.png"},
+            {id: 4, name: "Maggie", img: "headshots/maggie.jpg"},
+            {id: 5, name: "Sarah", img: "headshots/sarah.jpg"},
+            {id: 6, name: "Bobby", img: "headshots/bobby.jpg"},
+            {id: 7, name: "Alden", img: "headshots/alden.jpg"},
+            {id: 8, name: "Tracy", img: "headshots/tracy.jpg"},
+            {id: 9, name: "Aaron", img: "headshots/aaron.jpg"},
+            {id: 10, name: "Ellen", img: "headshots/ellen.jpg"}
+        ]
         let FriendLy = function (props) {
+            let friends = props.friends;
             let friendLyStyle = {
                 display: 'inline-block',
                 margin: 20,
@@ -26,12 +40,14 @@
                 textAlign: "center",
                 boxShadow: "0 0 5px #555"
             }
-            return (
-                <div style={friendLyStyle}>
-                    <Avatar img={props.img}/>
-                    <UserName name={props.name}/>
+            let friendsItem = friends.map(friend =>
+                <div key={friend.id} style={friendLyStyle}>
+                    <Avatar img={friend.img}/>
+                    <UserName name={friend.name}/>
                     <GetConnected/>
-                </div>
+                </div>)
+            return (
+                <div>{friendsItem}</div>
             );
         }
 
@@ -44,7 +60,7 @@
                 marginTop: "15px"
             }
             return (
-                <img src={props.img} alt="headshot" style={avatarStyle}></img>
+                <img src={props.img} alt="profile picture" style={avatarStyle}></img>
             );
         }
 
@@ -91,16 +107,9 @@
 
         ReactDOM.render(
             <div>
-                <FriendLy name="Kit" img="headshots/kit.jpg"/>
-                <FriendLy name="Rob" img="headshots/rob.jpg"/>
-                <FriendLy name="Erin" img="headshots/female1.png"/>
-                <FriendLy name="Maggie" img="headshots/maggie.jpg"/>
-                <FriendLy name="Sarah" img="headshots/sarah.jpg"/>
-                <FriendLy name="Bobby" img="headshots/bobby.jpg"/>
-                <FriendLy name="Alden" img="headshots/alden.jpg"/>
-                <FriendLy name="Tracy" img="headshots/tracy.jpg"/>
-                <FriendLy name="Aaron" img="headshots/aaron.jpg"/>
-                <FriendLy name="Ellen" img="headshots/ellen.jpg"/>
+                <FriendLy
+                    friends = {friends}
+                />
             </div>,
           document.getElementById("app")
         );
