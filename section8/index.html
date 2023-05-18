@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Guess My Age</title>
+</head>
+<body>
+    <div id="app">React hasn't rendered yet</div>
+    <script type="text/babel">
+        // class GuessingGame extends React.Component {
+        //     constructor(props) {
+        //         super(props);
+        //         this.state = {
+        //             age: 'Guess My Age'
+        //         };
+        //         this.handleButtonReveal = this.handleButtonReveal.bind(this)
+        //     }
+        //
+        //     handleButtonReveal() {
+        //         this.setState({
+        //             age: '40'
+        //         })
+        //     }
+        //
+        //     render() {
+        //         return(
+        //             <div>
+        //                 <h1>Let's Play a Guessing Game</h1>
+        //                 <h2>{this.state.age}</h2>
+        //                 <button onClick={this.handleButtonReveal}>Reveal My Age</button>
+        //             </div>
+        //         );
+        //     }
+        // }
+        class GuessingGame extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    age: 'Guess My Age'
+                };
+            }
+
+            handleButtonReveal() {
+                this.setState({
+                    age: '40'
+                })
+            }
+
+            render() {
+                return(
+                    // <div>
+                    //     <h1>Let's Play a Guessing Game</h1>
+                    //     <h2>{this.state.age}</h2>
+                    //     <button onClick={this.handleButtonReveal.bind(this)}>Reveal My Age</button>
+                    // </div>
+                    <div>
+                        <h1>Let's Play a Guessing Game</h1>
+                        <h2>{this.state.age}</h2>
+                        <button onClick={() => this.handleButtonReveal()}>Reveal My Age</button>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <GuessingGame />,
+            document.getElementById("app")
+        )
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Meal Voter</title>
+</head>
+<body>
+    <div id="app">React hasn't rendered yet</div>
+    <script type="text/babel">
+        let voteStyle = {
+            height: 450,
+            width: 250,
+            margin: 20,
+            display: 'inline-block',
+            padding: 0,
+            textAlign: "center",
+            boxShadow: "0 0 5px #555"
+        }
+        let imageStyle = {
+            height: 150,
+            width: 150,
+            marginTop: 30
+        }
+        // CREATE CLASS COMPONENT
+        class DinnerVote extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    total: 0
+                }
+            };
+            onClickUp() {
+                this.setState({
+                    total: this.state.total + 1
+                })
+            }
+            onClickDown() {
+                this.setState({
+                    total: this.state.total - 1
+                })
+            }
+
+            render() {
+                return(
+                  <div style={voteStyle}>
+                      <img style={imageStyle} src={this.props.img} alt={this.props.alt} />
+                      <h1>Dinner Time</h1>
+                      <p>Vote Here If You Want This </p>
+                      <button onClick={() => this.onClickUp()}>+1</button>
+                      <p>Vote Here If You Don't Want This</p>
+                      <button onClick={() => this.onClickDown()}>-1</button>
+                      <p>Total: <span>{this.state.total}</span></p>
+                  </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+                <DinnerVote img="https://static.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg" alt="salmon dish"/>
+                <DinnerVote img="https://static.pexels.com/photos/58722/pexels-photo-58722.jpeg" alt="bowl of fajita soup"/>
+                <DinnerVote img="https://static.pexels.com/photos/70497/pexels-photo-70497.jpeg" alt="burger and steak fries"/>
+            </div>,
+            document.getElementById("app")
+        )
+    </script>
+</body>
+</html>
